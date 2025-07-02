@@ -18,6 +18,7 @@ const divNav = document.getElementById('div_nav')
 const divTimer = document.getElementById('timer')
 
 
+
 /**
  * Affiche la question avec les 4 réponses tant que l'index est inférieur au nombre de questions
  */
@@ -117,11 +118,11 @@ function buttonOff() {
 function rematch() {
     let btn_replay = document.querySelector('.btn_replay')
     if (index >= quizzic.length) {
-        btn_replay.style.visibility = "visible"
-        btnSuivant.style.visibility = "hidden"
+        btn_replay.style.display = "block"
+        btnSuivant.style.display = "none"
     } else {
-        btn_replay.style.visibility = "hidden"
-        btnSuivant.style.visibility = "visible"
+        btn_replay.style.display = "none"
+        btnSuivant.style.display = "block"
     }
 }
 
@@ -173,7 +174,29 @@ function accueil() {
                 body.style.visibility = "hidden"
                 btnQuizzic.style.visibility = "visible"
                 btnQuizpotter.style.visibility = "visible"
+                document.querySelectorAll(".btn_choix_quiz").forEach((element => element.style.marginLeft = "100px"))
+                 document.querySelectorAll(".btn_choix_quiz").forEach((element => 
+                   element.style.marginTop = "300px"
+                ))
+                document.querySelectorAll(".btn_choix_quiz").forEach((element => element.style.padding = "50px"))
+                console.log('coucou')
             }
+
+
+function styleNavBar() {
+
+
+    document.getElementById("div_nav").style.height = "27px"
+    document.querySelectorAll(".btn_choix_quiz").forEach((element => element.style.marginTop = "0px"
+    ))
+    document.querySelectorAll(".btn_choix_quiz").forEach((element => element.style.marginLeft = "0px"))
+    document.querySelectorAll(".btn_choix_quiz").forEach((element => element.style.padding = "15px"))
+   
+
+ 
+} 
+
+
 
 
 /**
@@ -222,6 +245,7 @@ function quizChoice() {
             loadGame(event)
             content()
             refreshAddEventListener()
+            styleNavBar()
         })
     }
 }
@@ -229,7 +253,7 @@ function quizChoice() {
 
 export {
             content, nextQuestion, clearQuestion, disabledAnswer, buttonActivation, buttonOff, resetIndex, rematch,
-            disableCadrequestion, accueil, quizChoice, progression
+            disableCadrequestion, accueil, quizChoice, progression,styleNavBar
         }
 
 

@@ -13,6 +13,7 @@ let btnRematch = document.querySelector('.btn_replay')
 accueil()
 quizChoice()
 
+
 btnSuivant.addEventListener('click', () => {
     clearQuestion()
     nextQuestion()
